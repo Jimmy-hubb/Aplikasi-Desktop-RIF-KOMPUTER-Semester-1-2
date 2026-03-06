@@ -151,14 +151,7 @@ Klik **Run Project** pada NetBeans.
 
 # 📸 Application Preview
 
-Tambahkan screenshot aplikasi pada folder `images`.
-
-```
-![Login Page](images/login.png)
-![Dashboard](images/dashboard.png)
-![Data Barang](images/barang.png)
-![Laporan](images/laporan.png)
-```
+![alt text](https://github.com/Jimmy-hubb/Aplikasi-Desktop-RIF-KOMPUTER-Semester-1-2/blob/main/Screenshot%202026-03-06%20192431.png?raw=true)
 
 ---
 
