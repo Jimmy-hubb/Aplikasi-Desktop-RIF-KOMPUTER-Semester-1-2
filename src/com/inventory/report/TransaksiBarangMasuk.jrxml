@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="216" pageHeight="720" columnWidth="176" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0102192e-ff88-412d-9f09-45c0440f1ca8">
+	<property name="ireport.zoom" value="3.993000000000003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="no" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     barang_masuk.`tgl_masuk` AS barang_masuk_tgl_masuk,
+     barang_masuk.`total_masuk` AS barang_masuk_total_masuk,
+     detail_barang_masuk.`no_masuk` AS detail_barang_masuk_no_masuk,
+     detail_barang_masuk.`kode_barang` AS detail_barang_masuk_kode_barang,
+     detail_barang_masuk.`jml_masuk` AS detail_barang_masuk_jml_masuk,
+     detail_barang_masuk.`subtotal_masuk` AS detail_barang_masuk_subtotal_masuk,
+     barang.`nama_barang` AS barang_nama_barang,
+     barang.`satuan` AS barang_satuan,
+     barang.`harga` AS barang_harga,
+     distributor.`nama_distributor` AS distributor_nama_distributor,
+     distributor.`alamat_distributor` AS distributor_alamat_distributor
+FROM
+     `barang_masuk` barang_masuk INNER JOIN `detail_barang_masuk` detail_barang_masuk ON barang_masuk.`no_masuk` = detail_barang_masuk.`no_masuk`
+     INNER JOIN `barang` barang ON detail_barang_masuk.`kode_barang` = barang.`kode_barang`
+     INNER JOIN `distributor` distributor ON barang_masuk.`id_distributor` = distributor.`id_distributor`
+WHERE
+     detail_barang_masuk.no_masuk=$P{no}]]>
+	</queryString>
+	<field name="barang_masuk_tgl_masuk" class="java.sql.Date"/>
+	<field name="barang_masuk_total_masuk" class="java.lang.Integer"/>
+	<field name="detail_barang_masuk_no_masuk" class="java.lang.String"/>
+	<field name="detail_barang_masuk_kode_barang" class="java.lang.String"/>
+	<field name="detail_barang_masuk_jml_masuk" class="java.lang.Integer"/>
+	<field name="detail_barang_masuk_subtotal_masuk" class="java.lang.Integer"/>
+	<field name="barang_nama_barang" class="java.lang.String"/>
+	<field name="barang_satuan" class="java.lang.String"/>
+	<field name="barang_harga" class="java.lang.Integer"/>
+	<field name="distributor_nama_distributor" class="java.lang.String"/>
+	<field name="distributor_alamat_distributor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="0" width="130" height="20" uuid="deb37c1a-c8f0-4986-9de5-81fc2c05b74a"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RIF KOMPUTER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="20" width="130" height="10" uuid="644de681-be59-44a9-b7b7-416452e39cac"/>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Jl. Mastrip No. 94,Krajan Timur, Sumbersari]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="30" width="100" height="10" uuid="27d6a5fb-2f9b-40c6-a8cd-07a1f9e965ff"/>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[HP. 0812 3456 789]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="40" width="176" height="1" uuid="c0f03863-c63f-410c-8cba-9ec6cc8ea284"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35">
+			<textField>
+				<reportElement x="32" y="2" width="100" height="10" uuid="99467aa3-f7e1-4130-9fa8-5a65fe66277b"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{distributor_nama_distributor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="12" width="100" height="10" uuid="a41ec9d2-7b99-431c-bb52-8593f6781e4e"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{distributor_alamat_distributor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="10" uuid="d73b2d35-ce3b-43ed-9c6e-6a3d27825a8f"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Distributor :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="12" width="100" height="10" uuid="90d79461-84af-4cd0-b58b-50dc22ed4d3f"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Alamat Distributor :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="22" width="176" height="1" uuid="66581844-2940-474d-b690-e6366a468592"/>
+			</line>
+			<textField>
+				<reportElement x="76" y="23" width="100" height="11" uuid="6c5f3d86-e347-4fcd-9fbe-71087c98b857"/>
+				<textElement textAlignment="Right">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{barang_masuk_tgl_masuk}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="33" width="176" height="1" uuid="601c8ae8-c1d9-49ca-87fb-bed20a44eb5c"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="23" width="96" height="12" uuid="8c387ba1-4050-424e-921d-438656929f56"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detail_barang_masuk_no_masuk}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="10" height="9" uuid="4243e862-94d9-4341-b7ff-f670e1407fc7"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="10" width="44" height="9" uuid="1d2c2ee8-2bdc-47a3-96c2-849b35a34321"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detail_barang_masuk_kode_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="10" width="64" height="9" uuid="43ff70c5-4cd2-4508-971d-fd5e0d3065b4"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{barang_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="10" width="12" height="9" uuid="e61aa556-9a16-485a-96aa-ae2cfa2b8bf9"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{barang_satuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="10" width="54" height="9" uuid="c9068336-d6c2-4cbd-8931-b35ca815a7cc"/>
+				<textElement textAlignment="Right">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{barang_harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="10" width="6" height="9" uuid="704d8284-2795-4519-ae0b-eebacfe18c0e"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detail_barang_masuk_jml_masuk}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="210" splitType="Stretch">
+			<textField>
+				<reportElement x="118" y="3" width="58" height="11" uuid="998db848-1a41-4db7-8624-5455c2e8f3af"/>
+				<textElement textAlignment="Right">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{barang_masuk_total_masuk}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="88" y="3" width="66" height="11" uuid="1114832d-260b-4528-9d1a-25bf65970d20"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Subtotal :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="176" height="1" uuid="29699494-d45e-4db3-8a7d-2f9d4c778dde"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>
